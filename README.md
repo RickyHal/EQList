@@ -1,6 +1,8 @@
 # EQList
 
-EQList（E-QuickList）[![](https://jitpack.io/v/RickyHal/EQList.svg)](https://jitpack.io/#RickyHal/EQList)是一款Kotlin实现的功能强大的RecyclerView渲染框架，使用DSL方式快速构建RecyclerView，无需实现Adapter和ViewHolder。[GitHub](https://github.com/RickyHal/EQList)
+EQList（E-QuickList）[![](https://jitpack.io/v/RickyHal/EQList.svg)](https://jitpack.io/#RickyHal/EQList)是一款Kotlin实现的功能强大的RecyclerView渲染框架，使用DSL方式快速构建RecyclerView，无需实现Adapter和ViewHolder。[GitHub](https://github.com/RickyHal/EQList)，<a
+href="https://github.com/RickyHal/EQList/tree/main/results/apk">Demo下载</a>
+
 <img src="/results/img.gif" width="260">
 
 目前支持的功能：
@@ -426,7 +428,6 @@ interface ICustomLayoutManager {
     fun findCustomLastVisibleItemPosition(): Int
 }
 ```
-
 
 ## License
 
