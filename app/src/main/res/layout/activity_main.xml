@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/to_simple_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="不需要加载和刷新的列表" />
+
+    <Button
+        android:id="@+id/to_grid_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grid" />
+
+    <Button
+        android:id="@+id/to_staggered_grid_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="StaggeredGrid" />
+
+    <Button
+        android:id="@+id/to_loadable_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="可加载列表" />
+
+</LinearLayout>

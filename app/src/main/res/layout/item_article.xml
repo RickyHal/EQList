@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:paddingHorizontal="10dp"
+        android:textSize="20dp"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:textSize="16sp"
+        android:paddingHorizontal="10dp"
+        tools:text="xll" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_weight="1"
+        android:paddingHorizontal="15dp"
+        android:textSize="18sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="app卡顿系列五 ：你的卡顿小助手月光宝盒" />
+</LinearLayout>

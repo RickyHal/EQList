@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/btn_do"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/test_func_list"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/test_func_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_do"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fillViewport="true">
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <RadioButton
+                android:id="@+id/rb_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="size" />
+
+            <RadioButton
+                android:id="@+id/rb_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add" />
+
+            <RadioButton
+                android:id="@+id/rb_addAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="addAll" />
+
+            <RadioButton
+                android:id="@+id/rb_addAll1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="addAll to index" />
+
+            <RadioButton
+                android:id="@+id/rb_set1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set" />
+
+            <RadioButton
+                android:id="@+id/rb_set2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set by index" />
+
+            <RadioButton
+                android:id="@+id/rb_set3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set by index with payload" />
+
+            <RadioButton
+                android:id="@+id/rb_remove1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="remove by index" />
+
+            <RadioButton
+                android:id="@+id/rb_remove2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="remove by item" />
+
+            <RadioButton
+                android:id="@+id/rb_remove3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="removeFirst" />
+
+            <RadioButton
+                android:id="@+id/rb_remove4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="removeLast" />
+
+            <RadioButton
+                android:id="@+id/rb_remove5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="removeFirstWhen" />
+
+            <RadioButton
+                android:id="@+id/rb_remove6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="removeLastWhen" />
+
+            <RadioButton
+                android:id="@+id/rb_remove7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="removeAll" />
+
+            <RadioButton
+                android:id="@+id/rb_remove8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="removeWhen" />
+
+            <RadioButton
+                android:id="@+id/rb_find1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="find" />
+
+            <RadioButton
+                android:id="@+id/rb_find2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="findFirst" />
+
+            <RadioButton
+                android:id="@+id/rb_find3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="findLast" />
+
+            <RadioButton
+                android:id="@+id/rb_find4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="findAll" />
+
+            <RadioButton
+                android:id="@+id/rb_forEach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="forEach" />
+
+            <RadioButton
+                android:id="@+id/rb_forEachOf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="forEachOf" />
+
+            <RadioButton
+                android:id="@+id/rb_forEachIndexed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="forEachIndexed" />
+
+            <RadioButton
+                android:id="@+id/rb_contain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="contain" />
+
+            <RadioButton
+                android:id="@+id/rb_get"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="get" />
+
+            <RadioButton
+                android:id="@+id/rb_getall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="getAll" />
+
+            <RadioButton
+                android:id="@+id/rb_state_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set state to error" />
+
+            <RadioButton
+                android:id="@+id/rb_state_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set state to empty" />
+
+            <RadioButton
+                android:id="@+id/rb_state_hide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="set state to hide" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_do" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
