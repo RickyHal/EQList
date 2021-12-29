@@ -1,6 +1,5 @@
 package com.ricky.eqlist.datasource
 
-import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.EQListAdapter
 import com.ricky.eqlist.entity.LoadEntity
@@ -141,8 +140,8 @@ abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope? = null) :
         LogUtil.e(e)
     }
 
-    final override fun bindAdapter(adapter: EQListAdapter, recyclerView: RecyclerView) {
-        super.bindAdapter(adapter, recyclerView)
+    final override fun bindAdapter(adapter: EQListAdapter) {
+        super.bindAdapter(adapter)
         if (!contain(loader)) addFooter(loader)
     }
 
