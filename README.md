@@ -435,6 +435,10 @@ interface ICustomLayoutManager {
 
 ## 更新日志
 
+- V1.0.3 2021-12-29
+
+修复编译问题
+
 - V1.0.2 2021-12-29
 
 DataSource支持不传scope，可在DSL任意位置获取recyclerView
