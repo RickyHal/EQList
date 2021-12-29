@@ -1,5 +1,6 @@
 package com.ricky.eqlist.datasource
 
+import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.EQListAdapter
 import com.ricky.eqlist.entity.LoadEntity
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
  * @author Ricky Hal
  * @date 2021/11/18
  */
-abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope) : DataSource(scope), ILoader {
+abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope? = null) : DataSource(scope), ILoader {
     protected val loadParams: LoadParams<Cursor> by lazy { createLoadParams() }
     private var isLoaderIdle: Boolean = true
     private val loader = LoadEntity(LoadState.STATE_HIDE)
@@ -51,7 +52,7 @@ abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope) : DataSou
      * 持久化数据恢复
      */
     final override fun restore() {
-        readCacheJob = scope.launch {
+        readCacheJob = scope?.launch {
             val cachedData = onRestore()
             set(cachedData)
         }
@@ -60,7 +61,7 @@ abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope) : DataSou
     final override fun refresh() {
         // 正在刷新或加载更多，跳过
         if (!isLoadable()) return
-        refreshingJob = scope.safeLaunch {
+        refreshingJob = scope?.safeLaunch {
             LogUtil.d("开始下拉刷新")
             updateLoadState(true, LoadState.STATE_SHOW)
             onRefresh()
@@ -74,7 +75,7 @@ abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope) : DataSou
 
     final override fun loadMore() {
         if (!isLoadable()) return
-        loadingMoreJob = scope.safeLaunch {
+        loadingMoreJob = scope?.safeLaunch {
             LogUtil.d("开始加载更多")
             updateLoadState(false, LoadState.STATE_SHOW)
             onLoadMore()
@@ -140,8 +141,8 @@ abstract class LoadableDataSource<Cursor : Any>(scope: CoroutineScope) : DataSou
         LogUtil.e(e)
     }
 
-    final override fun bindAdapter(adapter: EQListAdapter) {
-        super.bindAdapter(adapter)
+    final override fun bindAdapter(adapter: EQListAdapter, recyclerView: RecyclerView) {
+        super.bindAdapter(adapter, recyclerView)
         if (!contain(loader)) addFooter(loader)
     }
 

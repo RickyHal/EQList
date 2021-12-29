@@ -12,7 +12,7 @@ import java.util.*
  * @author Ricky Hal
  * @date 2021/11/18
  */
-open class DataSource(scope: CoroutineScope) : BaseDataSource(scope), IHeader, IFooter {
+open class DataSource(scope: CoroutineScope? = null) : BaseDataSource(scope), IHeader, IFooter {
     private val _headers = mutableListOf<BaseEntity>()
     private val _footers = mutableListOf<BaseEntity>()
     private var cacheHeaders = mutableListOf<BaseEntity>()

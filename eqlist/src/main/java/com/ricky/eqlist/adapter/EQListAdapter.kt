@@ -19,8 +19,7 @@ import com.ricky.eqlist.viewholder.ItemViewHolder
  * @date 2021/11/19
  */
 open class EQListAdapter(
-    open val
-    dataSource: DataSource,
+    open val dataSource: DataSource,
     protected val initialDsl: InitialDsl,
     protected val layoutManager: RecyclerView.LayoutManager
 ) : RecyclerView.Adapter<BaseViewHolder>() {
@@ -68,8 +67,8 @@ open class EQListAdapter(
             val item = itemDefinition.dsl
             val lp = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
             lp.isFullSpan = item.isFullSpan
-                || headers.any { it::class.java.name == itemDefinition.entityName }
-                || footers.any { it::class.java.name == itemDefinition.entityName }
+                    || headers.any { it::class.java.name == itemDefinition.entityName }
+                    || footers.any { it::class.java.name == itemDefinition.entityName }
         }
     }
 

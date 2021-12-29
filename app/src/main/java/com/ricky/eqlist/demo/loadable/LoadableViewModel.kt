@@ -2,7 +2,6 @@ package com.ricky.eqlist.demo.loadable
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.ricky.eqlist.datasource.LoadParams
 import com.ricky.eqlist.datasource.LoadResult
 import com.ricky.eqlist.datasource.LoadableDataSource
@@ -33,7 +32,7 @@ class LoadableViewModel : ViewModel() {
         dataSource.addHeader(FullSpan())
     }
 
-    inner class ArticleDataSource : LoadableDataSource<Int>(viewModelScope) {
+    inner class ArticleDataSource : LoadableDataSource<Int>() {
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int> {
             return try {
                 val pageSize = params.pageLimit

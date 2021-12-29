@@ -25,8 +25,8 @@ private fun RecyclerView.setupLayoutManger(layoutManager: RecyclerView.LayoutMan
 
 fun RecyclerView.init(dataSource: DataSource, layoutManager: RecyclerView.LayoutManager? = null, initialDsl: InitialDsl.() -> Unit) {
     setupLayoutManger(layoutManager)
-    val initializer = InitialDsl().apply(initialDsl)
-    adapter = EQListAdapter(dataSource, initializer, this.layoutManager!!).also { dataSource.bindAdapter(it) }
+    val initializer = InitialDsl(this).apply(initialDsl)
+    adapter = EQListAdapter(dataSource, initializer, this.layoutManager!!).also { dataSource.bindAdapter(it, this) }
 }
 
 fun RecyclerView.initWithLoader(
@@ -36,8 +36,8 @@ fun RecyclerView.initWithLoader(
     initialDsl: LoadableInitialDsl.() -> Unit
 ) {
     setupLayoutManger(layoutManager)
-    val initializer = LoadableInitialDsl(dataSource).apply(initialDsl)
-    adapter = LoadableAdapter(preloadOffset, dataSource, initializer, this.layoutManager!!).also { dataSource.bindAdapter(it) }
+    val initializer = LoadableInitialDsl(dataSource, this).apply(initialDsl)
+    adapter = LoadableAdapter(preloadOffset, dataSource, initializer, this.layoutManager!!).also { dataSource.bindAdapter(it, this) }
 }
 
 /**
