@@ -437,6 +437,10 @@ interface ICustomLayoutManager {
 
 - V1.0.3 2021-12-29
 
+修复Datasource不传入scope时的崩溃
+
+- V1.0.3 2021-12-29
+
 修复编译问题
 
 - V1.0.2 2021-12-29
