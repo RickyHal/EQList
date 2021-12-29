@@ -3,6 +3,7 @@
 package com.ricky.eqlist.initializer
 
 import androidx.annotation.LayoutRes
+import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.adapter.ItemDefinition
 import com.ricky.eqlist.entity.BaseEntity
 import com.ricky.eqlist.entity.StateEntity
@@ -17,7 +18,7 @@ import com.ricky.eqlist.item.StateItem
  * @date 2021/11/18
  */
 
-open class InitialDsl : BaseInitialDsl()
+open class InitialDsl(recyclerView: RecyclerView) : BaseInitialDsl(recyclerView)
 
 inline fun <reified Entity : BaseEntity> InitialDsl.item(@LayoutRes layoutId: Int, dsl: Item<Entity>.() -> Unit = {}) {
     val itemDsl = Item<Entity>().apply(dsl)
@@ -32,7 +33,10 @@ inline fun <reified Entity : BaseEntity> InitialDsl.item(@LayoutRes layoutId: In
     )
 }
 
-inline fun <reified Entity : BaseEntity, Binding> InitialDsl.bindingItem(@LayoutRes layoutId: Int, dsl: BindingItem<Entity, Binding>.() -> Unit = {}) {
+inline fun <reified Entity : BaseEntity, Binding> InitialDsl.bindingItem(
+    @LayoutRes layoutId: Int,
+    dsl: BindingItem<Entity, Binding>.() -> Unit = {}
+) {
     val bindingItemDsl = BindingItem<Entity, Binding>().apply(dsl)
     itemDefinitions.add(
         ItemDefinition(

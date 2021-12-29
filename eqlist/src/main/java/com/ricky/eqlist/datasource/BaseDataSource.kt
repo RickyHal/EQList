@@ -1,6 +1,9 @@
 package com.ricky.eqlist.datasource
 
 import android.os.Looper
+import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.EQListAdapter
 import com.ricky.eqlist.entity.BaseEntity
@@ -11,7 +14,7 @@ import kotlinx.coroutines.*
  * @author Ricky Hal
  * @date 2021/11/18
  */
-abstract class BaseDataSource(protected val scope: CoroutineScope) {
+abstract class BaseDataSource(protected var scope: CoroutineScope? = null) {
     protected val _items = ArrayList<BaseEntity>()
     protected var adapter: EQListAdapter? = null
     private var diffUtil: DiffUtil? = null
@@ -57,13 +60,16 @@ abstract class BaseDataSource(protected val scope: CoroutineScope) {
     fun isNotEmpty(): Boolean = getAll().isNotEmpty()
     fun isEmpty(): Boolean = getAll().isEmpty()
 
-    internal open fun bindAdapter(adapter: EQListAdapter) {
+    internal open fun bindAdapter(adapter: EQListAdapter, recyclerView: RecyclerView) {
         this.adapter = adapter
+        if (scope == null) {
+            scope = ViewTreeLifecycleOwner.get(recyclerView)?.lifecycleScope ?: throw IllegalStateException("LifecycleOwner not found")
+        }
         diffUtil = DiffUtil(adapter)
     }
 
     internal open fun unBindAdapter() {
-        scope.cancel()
+        scope?.cancel()
         this.adapter = null
         diffUtil = null
     }
@@ -72,7 +78,7 @@ abstract class BaseDataSource(protected val scope: CoroutineScope) {
         if (Thread.currentThread() == Looper.getMainLooper().thread) {
             block()
         } else {
-            scope.launch(Dispatchers.Main) {
+            scope?.launch(Dispatchers.Main) {
                 block()
             }
         }

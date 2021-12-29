@@ -96,6 +96,7 @@ DataSource用于不需要加载更多的情况。
 data class User(val id: Int, val name: String) : BaseEntity()
 
 class DemoViewModel : ViewModel() {
+    // 可以传入协程scope，也可以不传，默认使用的是Activity的LifecycleScope
     val dataSource: DataSource = DataSource(viewModelScope)
 
     fun add() {
@@ -129,6 +130,9 @@ binding.recyclerView.init(viewModel.dataSource, layoutManager) {
             // 相当Adapter中的onBindViewHolder方法，data为对应位置的User
             // 可在此更新Item UI
             view.findViewById<TextView>(R.id.tv_user_name).text = data.name
+            val avatar = view.findViewById<ImageView>(R.id.iv_avatar)
+            // 可以直接拿到recyclerView
+            Glide.with(recyclerView.context).load(R.drawable.default_avatar).into(avatar)
         }
         onBindPayload { position, data, view, payloads ->
             // 相当Adapter中的onBindViewHolder方法，data为对应位置的User,payload为更新DataSource时传入的payload
@@ -428,6 +432,16 @@ interface ICustomLayoutManager {
     fun findCustomLastVisibleItemPosition(): Int
 }
 ```
+
+## 更新日志
+
+- V1.0.2 2021-12-29
+
+DataSource支持不传scope，可在DSL任意位置获取recyclerView
+
+- V1.0.1 2021-12-06
+
+初始版本
 
 ## License
 

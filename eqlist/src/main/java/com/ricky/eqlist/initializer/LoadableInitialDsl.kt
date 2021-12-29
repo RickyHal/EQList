@@ -3,6 +3,7 @@
 package com.ricky.eqlist.initializer
 
 import androidx.annotation.LayoutRes
+import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.adapter.ItemDefinition
 import com.ricky.eqlist.datasource.LoadableDataSource
 import com.ricky.eqlist.entity.LoadEntity
@@ -15,7 +16,7 @@ import com.ricky.eqlist.item.LoadItem
  * @date 2021/11/18
  */
 
-class LoadableInitialDsl(val dataSource: LoadableDataSource<*>) : InitialDsl()
+class LoadableInitialDsl(val dataSource: LoadableDataSource<*>, recyclerView: RecyclerView) : InitialDsl(recyclerView)
 
 inline fun LoadableInitialDsl.loadItem(@LayoutRes layoutId: Int, dsl: LoadItem.() -> Unit = {}) {
     val loadItemDsl = LoadItem(dataSource).apply(dsl)

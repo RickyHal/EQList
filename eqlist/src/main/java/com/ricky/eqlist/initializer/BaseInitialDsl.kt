@@ -1,5 +1,6 @@
 package com.ricky.eqlist.initializer
 
+import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.ItemDefinition
 
@@ -8,7 +9,7 @@ import com.ricky.eqlist.adapter.ItemDefinition
  * @author Ricky Hal
  * @date 2021/11/18
  */
-abstract class BaseInitialDsl {
+abstract class BaseInitialDsl(val recyclerView: RecyclerView) {
     val itemDefinitions = mutableListOf<ItemDefinition>()
     var onAttachBlock: () -> Unit = {}
     var onDetachBlock: () -> Unit = {}
