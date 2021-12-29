@@ -1,12 +1,11 @@
 package com.ricky.eqlist.datasource
 
 import android.os.Looper
-import androidx.lifecycle.ViewTreeLifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.EQListAdapter
 import com.ricky.eqlist.entity.BaseEntity
+import com.ricky.eqlist.viewScope
 import kotlinx.coroutines.*
 
 /**
@@ -60,12 +59,15 @@ abstract class BaseDataSource(protected var scope: CoroutineScope? = null) {
     fun isNotEmpty(): Boolean = getAll().isNotEmpty()
     fun isEmpty(): Boolean = getAll().isEmpty()
 
-    internal open fun bindAdapter(adapter: EQListAdapter, recyclerView: RecyclerView) {
+    internal open fun bindAdapter(adapter: EQListAdapter) {
         this.adapter = adapter
-        if (scope == null) {
-            scope = ViewTreeLifecycleOwner.get(recyclerView)?.lifecycleScope ?: throw IllegalStateException("LifecycleOwner not found")
-        }
         diffUtil = DiffUtil(adapter)
+    }
+
+    internal fun checkScope(recyclerView: RecyclerView) {
+        if (scope == null) {
+            scope = recyclerView.viewScope
+        }
     }
 
     internal open fun unBindAdapter() {

@@ -2,7 +2,6 @@ package com.ricky.eqlist.demo.waterfall
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.ricky.eqlist.datasource.LoadParams
 import com.ricky.eqlist.datasource.LoadResult
 import com.ricky.eqlist.datasource.LoadableDataSource
@@ -39,7 +38,7 @@ class WaterfallDemoViewModel : ViewModel() {
         dataSource.addHeader(FullSpan())
     }
 
-    inner class ImageDataSource : LoadableDataSource<Int>(viewModelScope) {
+    inner class ImageDataSource : LoadableDataSource<Int>() {
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int> {
             val result = mutableListOf<ImageItem>()
             repeat(params.pageLimit) {
