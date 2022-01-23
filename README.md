@@ -5,8 +5,6 @@ href="https://github.com/RickyHal/EQList/tree/main/results/apk">Demo下载</a>
 
 <img src="/results/guide.png">
 
-<img src="/results/img.gif" width="260">
-
 目前支持的功能：
 
 - [x] 支持MultiViewType
