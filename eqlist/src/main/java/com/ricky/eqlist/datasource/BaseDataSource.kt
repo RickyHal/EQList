@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.EQListAdapter
 import com.ricky.eqlist.entity.BaseEntity
-import com.ricky.eqlist.viewScope
 import kotlinx.coroutines.*
 
 /**
@@ -72,7 +71,6 @@ abstract class BaseDataSource(protected var scope: CoroutineScope? = null) {
 
     internal open fun unBindAdapter() {
         scope?.cancel()
-        this.adapter = null
         diffUtil = null
     }
 
