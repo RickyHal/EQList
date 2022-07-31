@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ricky.eqlist.LogUtil
 import com.ricky.eqlist.adapter.EQListAdapter
 import com.ricky.eqlist.entity.BaseEntity
+import com.ricky.eqlist.viewScope
 import kotlinx.coroutines.*
 
 /**
