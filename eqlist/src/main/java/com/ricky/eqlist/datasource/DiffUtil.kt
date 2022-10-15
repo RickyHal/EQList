@@ -20,14 +20,6 @@ class DiffUtil(
         // 没有任何改变，直接返回
         if (newList == oldList) return
         when {
-            oldList.isEmpty() -> {
-                adapter.notifyItemRangeInserted(0, newList.size)
-                oldList = newList
-            }
-            newList.isEmpty() -> {
-                adapter.notifyItemRangeRemoved(0, oldList.size)
-                oldList = newList
-            }
             isInitial -> {
                 adapter.notifyDataSetChanged()
                 oldList = newList

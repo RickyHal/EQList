@@ -10,8 +10,8 @@ android {
         applicationId "com.ricky.eqlist.demo"
         minSdk 21
         targetSdk 31
-        versionCode 4
-        versionName "1.0.4"
+        versionCode 8
+        versionName "1.0.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
